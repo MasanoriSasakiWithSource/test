@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/reset.css">
+		<style>
+		</style>
+		<script type="text/javascript" src="./js/jQuery1_8_3.js"></script>
+		<script>
+		var cnt = 1;
+
+		$(function()
+		{
+			var header_images_children = $('#header-images').children();
+			header_images_children.find(".checked").animate({'opacity' : 0.2});
+			setInterval(change_image , 5000);
+		});
+
+		function change_image()
+		{
+			var img_children = $('#header-images').children();
+			var header_images = $('#header-images');
+			var imgNum = 7;
+
+			if(cnt < imgNum)
+			{
+
+				cnt++;
+
+					header_images.children(".check").next("li").addClass("check");
+					header_images.children(".check:first").find('.checked').removeClass('checked');
+					header_images.children(".check:first").removeClass('check')
+					header_images.children(".check").find("img").addClass("checked")
+					img_children.find("img").animate({'opacity' : 1});
+					img_children.find(".checked").animate({'opacity' : 0.2});
+
+					var img_src = $('#header-images').children().find(".checked").attr("src");
+				$("img.img_second_main").fadeOut();
+				setTimeout(function()
+				{
+					$("img.img_second_main").fadeIn().attr("src" , img_src);
+				},400);
+
+
+			}
+			else
+			{
+				header_images.children(".check:first").find('.checked').removeClass('checked');
+				header_images.children(".check:first").removeClass('check')
+
+				header_images.children('li:first').addClass('check');
+				header_images.children('li:first').find('img').addClass('checked');
+
+				img_children.find("img").animate({'opacity' : 1});
+				img_children.find(".checked").animate({'opacity' : 0.2});
+				cnt = 1;
+				$("img.img_second_main").fadeOut();
+				setTimeout(function()
+				{
+					$("img.img_second_main").fadeIn().attr("src" , img_src);
+				},400);
+			}
+		}
+
+		</script>
+	</head>
+
+<body>
+	<div id="contents">
+		<div id="header">
+			<div class="header_img">
+				<img src="./img/sample_title1.gif" class="img_title">
+			</div>
+
+			<div class="home">
+				<ul class="ul_home">
+					<li class="to_home"><img src="./img/point001.gif"><a href="#">HOME</a></li>
+					<li class="to_home"><img src="./img/point001.gif"><a href="#">お問い合わせ</a></li>
+					<li class="to_home"><img src="./img/point001.gif"><a href="#">サイトマップ</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="nav">
+			<ul class="nl clearFix">
+				<li><a href="#">メニュー項目1 <span class="en">Menu1</span></a></li>
+				<li><a href="#">メニュー項目2 <span class="en">Menu2</span></a></li>
+				<li><a href="#">メニュー項目3 <span class="en">Menu3</span></a></li>
+				<li><a href="#">メニュー項目4 <span class="en">Menu4</span></a></li>
+				<li><a href="#">メニュー項目5 <span class="en">Menu5</span></a></li>
+			</ul>
+		</div>
+
+
+		<article>
+			<div id="main_content">
+				<div id="main">
+					<ul id="side_main_img">
+						<li class="img_line_side_main"><img src="./img/search-shop-btn1.png" class="img_side_main"></li>
+						<li class="img_line_side_main"><img src="./img/search-shop-btn1.png" class="img_side_main"></li>
+						<li class="img_line_side_main"><img src="./img/search-shop-btn1.png" class="img_side_main"></li>
+					</ul>
+				</div>
+
+				<div id="second_main">
+					<div class="second_main_img">
+						<img src="./img/cake/a0790_000015.jpg" class="img_second_main">
+					</div>
+
+					<div class="secnd_main_calsel">
+						<ul id="header-images">
+							<li class="check"><img src="./img/cake/a0790_0000151.jpg" class="checked"></li>
+							<li><img src="./img/cake/1_main_images.jpg"></li>
+							<li><img src="./img/cake/a0790_000017.jpg"></li>
+							<li><img src="./img/cake/cake1.jpg"></li>
+							<li><img src="./img/cake/111images.jpeg"></li>
+							<li><img src="./img/cake/2222images.jpeg"></li>
+							<li><img src="./img/cake/3333images.jpeg"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article>
+			<div id="contetns_menu">
+				<div id="side_left">
+
+					<div class="side_left_top">
+						おすすめメニュー
+					</div>
+
+					<div class="nav_side_left">
+						<ul class="nl_side_left">
+							<li class="cake_recipe"><a href="#">ケーキレシピ</a></li>
+								<ul>
+									<li>おおおいいいああああ</li>
+									<li>ああああああああああああ</li>
+								</ul>
+							<li><a href="#">メニュー項目2</a></li>
+							<li>いいいいいいいいいいいい</li>
+								<ul>
+									<li>おおおいいいああああ</li>
+								</ul>
+							<li><a href="#">メニュー項目3</a></li>
+							<li>うううううううううううう</li>
+							<li><a href="#">メニュー項目4</a></li>
+							<li>えええええええええええええ</li>
+							<li><a href="#">メニュー項目5</a></li>
+							<li>おおおおおおおおおおお</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="center_main">
+					<div class="ranking">
+
+					</div>
+						<ul>
+							<li>予算編成なら約束違反 谷垣氏写真</li>
+							<li>石原氏との連携難しい 橋下氏写真</li>
+							<li>路上に1500人致死相当の毒物写真</li>
+							<li>3年以内離職 塾や飲食で半数</li>
+							<li>真菌性髄膜炎の死者28人に 米NEW</li>
+							<li>ハム・飯山「冷静に」殊勲打写真NEW</li>
+							<li>佐々木健介、首の手術成功写真NEW</li>
+							<li>ジョン・コナー俳優また逮捕写真</li>
+						</ul>
+				</div>
+
+				<div id="side_right">
+					<div class="auth_login">
+						<img src="./img/title_login.gif" class="img_login">
+						<form action="" method="" class="form_login">
+							<label for="email" class="email_label">E-MAIL:</label>
+							<input type="text" name="email" class="email_input">
+							<label for="password" class="password_label">PASSORD:</label>
+							<input type="text" name="pass" class="pass_input">
+							<p><input type="checkbox" name="set_login" class="set_login">記憶</p>
+							<input type="submit" value="送信" class="form_submit">
+							<hr>
+							<p class="regist"><img src="./img/arrow.gif"><a href="">会員登録</a></p>
+							<p class="forget_pass"><img src="./img/arrow.gif"><a href="">パスワードを忘れた方</a></p>
+						</form>
+					</div>
+
+					<div class="cart">
+						<img src="./img/title_cart.gif" class="img_cart">
+						<p class="shop">商品数：0点</p>
+						<hr class="hr_cart">
+						<p class="sum">合計：0円</p>
+						<p class="cart_img_submit"><a href=""><img src="./img/button_cart.gif" class="cart_img_submit"></a></p>
+					</div>
+				side_right
+				</div>
+			</div>
+
+			<div id="clear">
+			</div>
+		</article>
+
+	<footer>
+		footer
+	</footer>
+
+	</div>
+</body>
+</html>
